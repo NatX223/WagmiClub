@@ -1,0 +1,202 @@
+@use "@/styles/"as *;
+
+.medal-details {
+    padding: .5rem;
+    border-radius: 1.5rem;
+    background-color: var(--black-300);
+
+    &__wrapper {
+        border-radius: inherit;
+        border: 1px solid lighten($color: #000000, $amount: 15);
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 20.5rem;
+        height: 17.25rem;
+        overflow: hidden;
+        border-bottom: 1px solid lighten($color: #000000, $amount: 15);
+
+        img {
+            object-fit: cover;
+            @include equal(100%);
+        }
+    }
+
+    &__description {
+        @include flex($d:column, $a:flex-start);
+        gap: 1rem;
+        padding: 1rem 1.75rem;
+    }
+
+    &__row {
+        @include flex($d: column);
+
+        &:nth-of-type(1),
+        &:nth-of-type(2),
+        &:nth-of-type(4),
+        &:nth-of-type(5) {
+            @include flex($j: space-between);
+            width: 100%;
+        }
+
+        &:nth-of-type(1) {
+            color: #FFFFFFD9;
+            justify-content: flex-start;
+
+            font: {
+                family: map-get($map: $ff, $key: clash);
+                size: .75rem;
+                weight: map-get($map: $fw, $key: reg);
+            }
+
+            span {
+                @include flex;
+
+                &:nth-of-type(1) {
+                    min-height: 100%;
+                    height: .75rem;
+
+                    i {
+                        @include equal(.5rem);
+                        border-radius: 50%;
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    margin-right: auto;
+                    margin-left: .25rem;
+                }
+            }
+        }
+
+        &:nth-of-type(3) {
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: 1rem;
+
+            h3 {
+                font: {
+                    family: map-get($map: $ff, $key: clash);
+                    size: 1rem;
+                    weight: map-get($map: $fw, $key: mid);
+                }
+            }
+
+            p {
+                font: {
+                    family: map-get($map: $ff, $key: clash);
+                    size: .5rem;
+                    weight: map-get($map: $fw, $key: reg);
+                }
+            }
+        }
+
+        &:nth-of-type(4) {
+            span {
+                &:nth-of-type(1) {
+                    color: #FFFFFF9E;
+
+                    font: {
+                        family: map-get($map: $ff, $key: clash);
+                        size: calc(.75rem - 0.125rem);
+                        weight: map-get($map: $fw, $key: reg);
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    color: #FFFFFFD9;
+
+                    font: {
+                        family: map-get($map: $ff, $key: clash);
+                        size: .75rem;
+                        weight: map-get($map: $fw, $key: mid);
+                    }
+                }
+            }
+        }
+
+        &:nth-of-type(5) {
+            >span {
+                color: #FFFFFF9E;
+
+                font: {
+                    family: map-get($map: $ff, $key: clash);
+                    size: calc(.75rem - 0.125rem);
+                    weight: map-get($map: $fw, $key: reg);
+                }
+            }
+
+            >div {
+                @include flex;
+                position: relative;
+                height: 1.75rem;
+                width: 40%;
+
+                span {
+                    @include equal(1.75rem);
+                    overflow: hidden;
+                    border-radius: 50%;
+                    position: absolute;
+
+                    &:nth-of-type(1) {
+                        right: 3rem;
+                    }
+
+                    &:nth-of-type(2) {
+                        right: 1.5rem;
+                    }
+
+                    &:nth-of-type(3) {
+                        right: 0;
+                    }
+                }
+            }
+        }
+
+        &:nth-of-type(6) {
+            width: 100%;
+            margin-top: 3.75rem;
+
+            button {
+                height: 2.25rem;
+                width: 13rem;
+                border-radius: .75rem;
+                background-color: #EBEBEB;
+                color: black;
+
+                font: {
+                    family: map-get($map: $ff, $key: clash);
+                    size: .75rem;
+                    weight: map-get($map: $fw, $key: mid);
+                }
+            }
+        }
+    }
+
+    &__host {
+        @include flex($j:flex-start);
+        gap: .5rem;
+
+        span {
+            &:nth-of-type(1) {
+                @include equal(2.5rem);
+                @include flex;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    @include equal(100%);
+                }
+            }
+
+            &:nth-of-type(2) {
+                font: {
+                    family: map-get($map: $ff, $key: clash);
+                    size: 1rem;
+                    weight: map-get($map: $fw, $key: reg);
+                }
+            }
+        }
+    }
+}

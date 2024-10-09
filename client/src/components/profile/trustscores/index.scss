@@ -1,0 +1,64 @@
+@use "@/styles/"as *;
+
+.profile__trustscores {
+    margin-block: 1.5rem;
+
+    &__wrapper {
+        @include flex($d:column, $a:flex-start);
+        gap: 1rem
+    }
+
+    &__title {
+        color: #000000DE;
+        background-color: #FCF9F9B0;
+        padding: .1875rem .25rem;
+        border-radius: .75rem;
+
+        font: {
+            family: map-get($map: $ff, $key: clash);
+            weight: map-get($map: $fw, $key: mid);
+            size: .5rem;
+        }
+    }
+
+    &__list {
+        @include flex;
+        gap: 1rem;
+        padding-left: .5rem;
+    }
+
+    &__item {
+        @include flex($d:column);
+        gap: .75rem;
+
+        div {
+            border: 1px solid white;
+            @include equal(2.75rem);
+            @include flex;
+            border-radius: 50%;
+
+            span {
+                @include flex;
+                border-radius: inherit;
+                border: 1px solid white;
+                @include equal(80%);
+
+                font: {
+                    family: map-get($map: $ff, $key: clash);
+                    weight: map-get($map: $fw, $key: mid);
+                    size: .75rem;
+                }
+            }
+        }
+
+        >span {
+            font: {
+                family: map-get($map: $ff, $key: clash);
+                weight: map-get($map: $fw, $key: mid);
+                size: .5rem;
+            }
+
+            text-transform: capitalize;
+        }
+    }
+}

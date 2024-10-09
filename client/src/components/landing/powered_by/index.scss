@@ -1,0 +1,184 @@
+@use "@/styles"as *;
+
+.landing__powered {
+    margin: 5.75rem 0 0 0;
+
+    @include bp-min($ss-mm) {
+        margin: 2.75rem 0 0 0;
+    }
+
+    &-wrapper {
+        @include flex($d:column);
+    }
+
+    &-top {
+        @include flex($d:column);
+        gap: 3rem;
+
+        @include bp-min($ss-mm) {
+            @include flex($d:row);
+            gap: 3.25rem;
+        }
+    }
+
+    &-buttons {
+        @include flex($d:column);
+        gap: 1.5rem;
+
+        @include bp-min($ss-mm) {
+            width: 23.75rem;
+
+            button {
+                &:first-of-type {
+                    margin-right: auto;
+                }
+
+                &:last-of-type {
+                    margin-left: auto
+                }
+            }
+        }
+
+        button {
+            @include flex;
+            width: 17.5rem;
+            height: 1.875rem;
+            border-radius: .5rem;
+            background-color: var(--black-200);
+            @include flex;
+            gap: .25rem;
+
+            span {
+                @include flex;
+
+                &:nth-of-type(1) {
+                    @include equal(1.25rem);
+                    overflow: hidden;
+                    @include flex;
+                    border-radius: 50%;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        border: 1px solid var(--white);
+                        border-radius: inherit;
+                        opacity: .5;
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    color: var(--white);
+
+                    font: {
+                        family: map-get($map: $ff, $key: clash);
+                        size: .875rem;
+                        weight: map-get($map: $fw, $key: mid)
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    @include equal(.625rem)
+                }
+            }
+        }
+    }
+
+    &-profile {
+        height: 11.5rem;
+        width: 23rem;
+        position: relative;
+        overflow: hidden;
+        pointer-events: none;
+        @include flex;
+
+        >section {
+            position: absolute;
+            top: -6rem;
+            padding: .5rem;
+            display: block;
+        }
+    }
+
+    &-bottom {
+        width: 100%;
+        height: 4rem;
+        background-color: var(--white);
+        color: black;
+        @include flex($j:flex-start);
+        gap: 2.5rem;
+        padding-inline: 18rem;
+        height: 5.25rem;
+        overflow: hidden;
+
+        >* {
+            flex: 1;
+        }
+
+        @include bp-max($ss-mm) {
+            padding: 2rem 0rem;
+            height: 3rem;
+            gap: 0;
+        }
+
+        b {
+            text-align: center;
+
+            font: {
+                family: map-get($map: $ff, $key: clash);
+                weight: map-get($map: $fw, $key: mid);
+                size: 1.5rem;
+            }
+
+            @include bp-max($ss-mm) {
+                font-size: .75rem;
+            }
+        }
+
+        div {
+            @include flex;
+            width: 15.5rem;
+
+            @include bp-max($ss-mm) {
+                width: 7.25rem;
+                height: 2rem;
+                padding-right: 1rem;
+            }
+
+            &:last-of-type {
+                @include flex;
+
+                i {
+                    @include equal(3.5rem);
+
+                    &:first-of-type {
+                        @include flex;
+
+                        @include bp-max($ss-mm) {
+                            @include equal(2rem);
+                        }
+                    }
+
+                    &:last-of-type {
+                        flex: 1;
+                        @include flex;
+                        // background-color: #000;
+                        position: relative;
+
+                        svg {
+                            position: absolute;
+                            scale: 1;
+                            left: 0;
+
+                            @include bp-max($ss-mm) {
+                                left: -1.75rem;
+                                scale: .5;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

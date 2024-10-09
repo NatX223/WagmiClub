@@ -1,0 +1,264 @@
+@use "../../../styles/"as *;
+
+.landing-profile {
+    padding-inline: 2.5rem;
+
+    &__wrapper {
+        @include equal(100%);
+        @include flex($d: column);
+        margin-block: 6rem;
+        border: 1px solid lighten($color: #000000, $amount: 15);
+        border-radius: 1.5rem;
+        background-color: var(--black-300);
+        padding: 2rem 1.5rem;
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: "";
+            @include equal(calc(100% + .75rem));
+            border: 1px solid lighten($color: #000000, $amount: 15);
+            z-index: -1;
+            border-radius: inherit;
+            background-color: inherit;
+        }
+
+        >* {
+            width: 100%;
+        }
+    }
+}
+
+.landing-profile__actions {
+    &__wrapper {
+        @include flex($j:space-between);
+    }
+
+    &__left {
+        @include equal(3.75rem);
+
+        div {
+            @include equal(3.5rem);
+            border-radius: 50%;
+            overflow: hidden;
+            @include flex;
+        }
+    }
+
+    &__right {
+        @include flex();
+        gap: 1rem;
+
+        >* {
+            height: 1rem;
+            width: 3rem;
+            @include flex;
+            border-radius: .5rem;
+            background-color: #C6D2B9B0;
+            color: rgba(0, 0, 0, 0.87);
+
+            font: {
+                size: .5rem;
+                family: map-get($map: $ff, $key: clash);
+                weight: map-get($map: $fw, $key: mid);
+            }
+        }
+    }
+}
+
+.landing-profile__bio {
+    margin-block: 1rem;
+
+    &__wrapper {
+        @include flex($d:column, $j:flex-start);
+
+        >* {
+            width: 100%;
+        }
+    }
+
+    &__top {
+        @include flex($d:column, $a:flex-start);
+
+        h1 {
+            @include flex;
+            gap: .25rem;
+            color: #F6FFF8;
+
+            font: {
+                size: 1rem;
+                weight: map-get($map: $fw, $key: mid);
+                family: map-get($map: $ff, $key: clash);
+            }
+        }
+
+        i {
+            @include equal(.75rem);
+            @include flex;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.64);
+
+            font: {
+                size: .5rem;
+                weight: map-get($map: $fw, $key: mid);
+                family: map-get($map: $ff, $key: clash);
+            }
+        }
+    }
+
+    &__center {
+        @include flex($d:column);
+        gap: .25rem;
+        margin-block: .5rem;
+
+        &-text {
+            color: rgba(255, 255, 255, 0.64);
+            width: 100%;
+
+            font: {
+                size: .75rem;
+                weight: map-get($map: $fw, $key: reg);
+                family: map-get($map: $ff, $key: clash);
+            }
+        }
+
+        &-buttons {
+            @include flex($j:flex-start);
+            width: 100%;
+            gap: .5rem;
+
+            >div {
+                @include flex;
+            }
+
+            &-left,
+            &-right {
+                gap: .25rem;
+
+                i {
+                    @include equal(.5rem);
+                    @include flex;
+                }
+
+                p {
+                    color: rgba(149, 149, 149, 0.80);
+
+                    font: {
+                        size: .5rem;
+                        weight: map-get($map: $fw, $key: reg);
+                        family: map-get($map: $ff, $key: clash);
+                    }
+                }
+
+                picture {
+                    @include equal(1rem);
+                    @include flex;
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        @include flex($j:flex-start);
+        gap: 1rem;
+
+        div {
+            @include flex;
+            gap: .125rem;
+
+            font: {
+                size: .5rem;
+                weight: map-get($map: $fw, $key: reg);
+                family: map-get($map: $ff, $key: clash);
+            }
+
+            span {
+                color: rgba(255, 255, 255, 0.50);
+            }
+
+            b {
+                color: var(--white);
+            }
+        }
+    }
+}
+
+.landing-profile__badges {
+    &__wrapper {
+
+        h4 {
+            font: {
+                family: map-get($map: $ff, $key: clash);
+                size: .5rem;
+                weight: map-get($map: $fw, $key: mid);
+            }
+
+            margin-bottom: .25rem;
+        }
+
+        >div {
+            @include flex;
+            gap: 1.25rem;
+        }
+    }
+
+    &__badge {
+        position: relative;
+        @include flex($d: column);
+        gap: .25rem;
+        @include equal(3.75rem);
+
+        >i {
+            position: absolute;
+            top: -.5rem;
+            right: .75rem;
+
+            @include bp-max($ss-mm) {
+                right: 0rem;
+                top: 0rem;
+            }
+        }
+
+        img {
+            @include equal(5.75rem);
+            @include flex;
+            border-radius: 50%;
+
+            @include bp-max($ss-mm) {
+                @include equal(1.75rem);
+            }
+        }
+
+        span {
+            @include flex;
+
+            font: {
+                size: .875rem;
+                /* Set font size */
+                family: map-get($map: $ff, $key: clash);
+                /* Set font family */
+                weight: map-get($map: $fw, $key: reg);
+                /* Set font weight */
+            }
+
+            @include bp-max($ss-mm) {
+                font: {
+                    size: .5rem
+                }
+            }
+
+            color: rgba(255, 255, 255, 0.87);
+
+            i {
+                @include flex;
+                @include equal(.5rem);
+
+                @include bp-max($ss-mm) {
+                    @include equal(.25rem);
+                }
+            }
+        }
+    }
+}

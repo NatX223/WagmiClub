@@ -1,0 +1,14 @@
+@use "@/styles/"as *;
+@import "@/styles/component/organization_badge";
+
+.profile__medals {
+    &__title {
+        font: {
+            family: map-get($map: $ff, $key: clash);
+            weight: map-get($map: $fw, $key: mid);
+            size: .5rem;
+        }
+
+        margin-block: 1rem;
+    }
+}

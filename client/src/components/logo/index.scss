@@ -1,0 +1,50 @@
+// Import global styles and variables
+@use "../../styles/"as *;
+
+/**
+ * Styles for the logo component.
+ */
+.logo {
+
+    /**
+     * Styles for the logo wrapper element.
+     */
+    &__wrapper {
+
+        /**
+         * Styles for the child span elements within the wrapper.
+         */
+        span {
+
+            /**
+             * Font styles for the logo text.
+             */
+            font: {
+                size: 1rem; // Base font size for optimal readability and balance with other UI elements
+                family: map-get($map: $ff, $key: clash); // Custom font-family variable for consistent branding and style
+                weight: map-get($map: $fw, $key: mid); // Custom font-weight variable for a balanced and medium font thickness
+            }
+
+            // Responsive font size for medium screens and above
+            @include bp-min($ss-mm) {
+                font-size: 1.25rem;
+            }
+
+            /**
+             * Capitalize the first word in the logo text.
+             * Example: "example logo" becomes "Example logo"
+             */
+            &:first-of-type {
+                text-transform: capitalize;
+            }
+
+            /**
+             * Apply green color to the last word in the logo text.
+             * Example: "Example logo" with green last word
+             */
+            &:last-of-type {
+                color: var(--green-100); // Custom green color variable
+            }
+        }
+    }
+}

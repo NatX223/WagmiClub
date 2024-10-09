@@ -1,0 +1,74 @@
+@use "@/styles"as *;
+
+/**
+ * Styles for the .form__divider component
+ */
+.form {
+    &__divider {
+        margin: 5.75rem 0 1.75rem 0;
+        /** Margin for form divider */
+
+        font: {
+            size: 1rem;
+            /** Font size for form divider */
+            weight: map-get($map: $fw, $key: mid);
+            /** Font weight for form divider */
+            family: map-get($map: $ff, $key: clash);
+            /** Font family for form divider */
+        }
+    }
+
+    /**
+     * Styles for the submit section.
+     */
+    &__button {
+        /**
+         * Apply flexbox layout and set top margin.
+         */
+        @include flex;
+        /* Apply flexbox layout */
+        margin-top: 3.5rem;
+        /* Set top margin for the submit section */
+
+        /**
+         * Styles for the submit button.
+         */
+        &-wrapper {
+            @include flex;
+            /* Apply flexbox layout */
+            border-radius: 0.3125rem;
+            /* Set border radius for the button */
+            background-color: var(--green-300);
+            /* Set background color for the button */
+            font-size: 0.75rem;
+            /* Set font size for the button text */
+            @include flex;
+            /* Apply flexbox layout */
+            border-radius: 0.3125rem;
+            /* Set border radius for the button */
+            background-color: var(--green-300);
+            /* Set background color for the button */
+            width: 10rem;
+            height: 2.75rem;
+            position: relative;
+
+            span {
+                font: {
+                    family: map-get($map: $ff, $key: clash);
+                    weight: map-get($map: $fw, $key: mid);
+                    size: 0.75rem;
+                }
+
+                text-transform: capitalize;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                border: 1px solid;
+                @include equal(calc(100% - 2px));
+                border-radius: inherit;
+            }
+        }
+    }
+}

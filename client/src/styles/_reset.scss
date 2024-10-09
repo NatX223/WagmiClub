@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    border: none;
+    outline: none;
+    text-size-adjust: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+button {
+    border: none;
+    outline: none;
+}

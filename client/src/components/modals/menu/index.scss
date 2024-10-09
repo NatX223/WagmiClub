@@ -1,0 +1,62 @@
+@use "@/styles/"as *;
+
+.content__wrapper {
+    padding: .75rem 1.25rem 1rem 1.25rem;
+}
+
+.navigation {
+    @include flex($d:column, $a:flex-start);
+    gap: .875rem;
+
+    li {
+        font-family: map-get($map: $ff, $key: clash);
+        font-weight: map-get($map: $fw, $key: mid);
+        font-size: .875rem;
+
+        a {
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    #login {
+        @include flex($j: flex-start, $a: flex-end);
+        width: 100%;
+        gap: .25rem;
+
+        img {
+            border-radius: 50%;
+            @include equal(1.5rem);
+            @include flex;
+            border: .0625rem solid white;
+        }
+    }
+}
+
+.search {
+    width: 100%;
+    margin-top: 1.25rem;
+    border-radius: .625rem;
+    background-color: var(--white);
+    @include flex;
+    padding: .25rem;
+    overflow: hidden;
+
+    input {
+        font-family: map-get($map: $ff, $key: clash);
+        font-size: 1rem;
+        font-weight: map-get($map: $fw, $key: mid);
+        width: 3.75rem;
+        transition: .25s;
+
+        &:focus {
+            padding-inline: .5rem;
+            flex: 1;
+        }
+    }
+
+    span {
+        @include flex;
+    }
+}

@@ -1,0 +1,110 @@
+@use "@/styles"as *;
+
+/**
+ * Styles for the secondary navigation bar component.
+ */
+.secondaryNav {
+    @include bp-min($ss-mm) {
+        display: none
+    }
+
+    /**
+     * Extending styles from the shared navbar container.
+     */
+    @extend %navbar-container;
+
+    /**
+     * Styles for the wrapper inside the secondary navigation bar.
+     */
+    &__wrapper {
+        /**
+         * Applying flexbox layout with space-between alignment.
+         */
+        @include flex($j: space-between);
+    }
+
+    /**
+     * Styles for the right column inside the secondary navigation bar.
+     */
+    &__right-col {
+        /**
+         * Applying flexbox layout.
+         */
+        @include flex;
+
+        /**
+         * Setting gap between items.
+         */
+        gap: 0.5rem;
+    }
+
+    /**
+     * Styles for the 'Create' link inside the secondary navigation bar.
+     */
+    &__create {
+        /**
+         * Font styles for the 'Create' link.
+         */
+        font-size: 0.8125rem;
+        font-family: map-get($map: $ff, $key: clash);
+        text-transform: capitalize;
+
+        /**
+         * Styling for the active state of the link.
+         */
+        a.active {
+            color: rgba($color: #f2f0f0, $alpha: 0.40);
+        }
+    }
+
+    /**
+     * Styles for the 'Search' element inside the secondary navigation bar.
+     */
+    &__search {
+        /**
+         * Margin settings for the 'Search' element.
+         */
+        margin: 0 0.75rem 0 0.125rem;
+
+        button {
+            background-color: transparent;
+
+            >span {
+                color: #FFFFFFB0;
+                @include flex;
+                /** Apply flex styles **/
+                @include equal(2rem);
+                /** Sets the width and height of the 'span' element to '2rem' **/
+                border: #FFFFFFA3;
+                /** Sets the border color of the 'span' element to '#FFFFFFA3' **/
+            }
+        }
+    }
+
+    &__profile {
+        /** Selects the element with the class '__profile' that is a descendant of the current element **/
+
+        @include flex;
+        /** Apply flex styles **/
+
+        background-color: transparent;
+        /** Sets the background color of the element to transparent **/
+        overflow: hidden;
+        /** Hides any content that exceeds the boundaries of the element **/
+        border-radius: 50%;
+        /** Sets the border radius of the element to 50%, making it appear as a circle **/
+
+        button {
+            background-color: transparent;
+
+            span {
+                @include flex;
+                /** Apply flex styles **/
+                @include equal(2rem);
+                /** Sets the width and height of the 'span' element to '2rem' **/
+                border: #FFFFFFA3;
+                /** Sets the border color of the 'span' element to '#FFFFFFA3' **/
+            }
+        }
+    }
+}

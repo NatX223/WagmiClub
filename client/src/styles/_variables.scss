@@ -1,0 +1,94 @@
+@use "functions"as *;
+@use "mixins"as *;
+@use "typography"as *;
+
+$ss-sm: 25em;
+$ss-mm: 40em;
+
+// navbar shared styles
+%navbar-container {
+    margin-block: 2.25rem;
+    padding-inline: 1.75rem;
+}
+
+// landing page shared styles
+%quest-header {
+    @include flex;
+    gap: .25em;
+
+    font: {
+        size: 1.125rem;
+        family: map-get($map: $ff, $key: clash);
+        weight: map-get($map: $fw, $key: mid);
+    }
+
+    @include bp-min($ss-mm) {
+        font-size: 2rem;
+    }
+
+    span {
+        &:first-of-type {
+            color: var(--yellow-100);
+        }
+
+        &:last-of-type {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            @include equal(1.25rem);
+
+            @include bp-min($ss-mm) {
+                @include equal(1.875rem);
+
+                svg {
+                    @include equal(inherit)
+                }
+            }
+        }
+    }
+}
+
+%quest-text {
+    text-align: center;
+
+    font: {
+        size: .875rem;
+        family: map-get($map: $ff, $key: clash);
+        weight: map-get($map: $fw, $key: reg);
+    }
+
+    @include bp-min($ss-mm) {
+        text-align: left;
+        font-size: 1.25rem;
+    }
+}
+
+// badge component shared styles
+%badge-wrapper {
+    background-color: hexToRgba(#313131, 0.55);
+    overflow: hidden;
+    border-radius: .3125rem;
+    width: 100%;
+}
+
+%badge-input {
+    background-color: transparent;
+    color: rgba($color: #fff, $alpha: .75);
+    width: 100%;
+    font-family: map-get($map: $ff, $key: clash);
+}
+
+%badge-edit {
+    position: absolute;
+    font-size: .4375rem;
+    font-family: map-get($map: $ff, $key: clash);
+    color: rgba($color: #cbcc95, $alpha: .52);
+    width: max-content;
+}
+
+// edit component shared styles
+%details-wrapper {
+    margin: .5rem 0 .25rem 0;
+    width: 100%;
+    border-radius: .625rem;
+}

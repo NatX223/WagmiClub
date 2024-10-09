@@ -1,0 +1,61 @@
+/**
+ * Styles for the badge and medal components.
+ */
+.badge,
+.medal,
+.disconnect {
+
+    /**
+     * Styles for the submit section.
+     */
+    &__submit {
+        /**
+         * Apply flexbox layout and set top margin.
+         */
+        @include flex;
+        /* Apply flexbox layout */
+        margin-top: 3.5rem;
+        /* Set top margin for the submit section */
+
+        /**
+         * Styles for the submit button.
+         */
+        &-button {
+            @include flex;
+            /* Apply flexbox layout */
+            border-radius: 0.3125rem;
+            /* Set border radius for the button */
+            background-color: var(--green-300);
+            /* Set background color for the button */
+            font-size: 0.75rem;
+            /* Set font size for the button text */
+            @include flex;
+            /* Apply flexbox layout */
+            border-radius: 0.3125rem;
+            /* Set border radius for the button */
+            background-color: var(--green-300);
+            /* Set background color for the button */
+            width: 10rem;
+            height: 2.75rem;
+            position: relative;
+
+            span {
+                font: {
+                    family: map-get($map: $ff, $key: clash);
+                    weight: map-get($map: $fw, $key: mid);
+                    size: 0.75rem;
+                }
+
+                text-transform: capitalize;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                border: 1px solid;
+                @include equal(calc(100% - 2px));
+                border-radius: inherit;
+            }
+        }
+    }
+}

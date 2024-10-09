@@ -3,7 +3,7 @@ var provider;
 var signer;
 var userProfile;
 
-const baseAPIURL = "https://wagmibackend.up.railway.app/";
+const baseAPIURL = "https://wagmibackend.onrender.com";
 
 export const badgeContractAddress = "0xB07Ad6e27d4Cf9a1D2bCf965F1eC66B20276c312";
 export const badgeABI = [

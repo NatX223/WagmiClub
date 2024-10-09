@@ -1,3 +1,5 @@
+"use client";
+
 import { getMessage, medalAction, getEligible, medalContractAddress } from "@/utils/app.mjs";
 import { FC } from "react";
 import "./page.scss";

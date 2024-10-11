@@ -4,9 +4,9 @@ import { mintBadge, badgeContractAddress } from "@/utils/app.mjs";
 import { useFormik } from "formik";
 import { useWriteContract, useAccount } from 'wagmi';
 import "./index.scss";
-import { getConfig } from "@/wagmi";
-import { getEnsAddress } from '@wagmi/core'
-import { normalize } from 'viem/ens';
+// import { getConfig } from "@/wagmi";
+// import { getEnsAddress } from '@wagmi/core'
+// import { normalize } from 'viem/ens';
 
 export const Badge = ({ group }: { group: string }) => {
 	const initialValues = {
@@ -21,6 +21,9 @@ export const Badge = ({ group }: { group: string }) => {
 		validator: "",
 		working: false,
 	};
+
+	const account = useAccount();
+	const address = account.address || "";
 
 	const { writeContract } = useWriteContract() 
 	const abi = [
@@ -54,8 +57,6 @@ export const Badge = ({ group }: { group: string }) => {
 			console.log("Formik data:", values);
 			// Handle form submission logic here (e.g., API call)
 			try {
-				const account = useAccount();
-				const address = account.address || "";
 				await mintBadge(values, address);
 				writeContract(
 					{ 

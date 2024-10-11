@@ -28,10 +28,23 @@ interface props {
 	isParticipant: boolean;
 }
 
+export const MedalDetails: FC<props> = ({
+	id,
+	title,
+	description,
+	host,
+	hostImage,
+	medalImage,
+	metrics,
+	participants,
+	claimed,
+	isCreator,
+	isParticipant,
+	time: { start, end },
+	quantity: { total, remaining },
+}) => {
 	const account = useAccount();
 	const address = account.address || "";
-
-	const { writeContract } = useWriteContract();
 	const abi = [
 		{
 			"inputs": [],
@@ -59,22 +72,7 @@ interface props {
 			"type": "function"
 		},
 	] as const;
-
-export const MedalDetails: FC<props> = ({
-	id,
-	title,
-	description,
-	host,
-	hostImage,
-	medalImage,
-	metrics,
-	participants,
-	claimed,
-	isCreator,
-	isParticipant,
-	time: { start, end },
-	quantity: { total, remaining },
-}) => {
+	const { writeContract } = useWriteContract();
 	const group = "medal-details";
 	const [startDate, endDate] = [new Date(start), new Date(end)];
 	const diffTime = Math.abs(endDate.getTime() - startDate.getTime());

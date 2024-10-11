@@ -134,7 +134,7 @@ export const getUserAddress = async () => {
 
 export const checkUser = async (address) => {
 	try {
-		const response = await fetch(`${baseAPIURL}checkUser/${address}`);
+		const response = await fetch(`${baseAPIURL}/checkUser/${address}`);
 
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
@@ -160,7 +160,7 @@ export const signUp = async (profileRequestBody, address) => {
 	try {
 		profileRequestBody["address"] = address;
 		// call create function to API with details
-		const endPoint = "createProfile";
+		const endPoint = "/createProfile";
 		const createProfileEndpoint = baseAPIURL + endPoint;
 		const response = await fetch(createProfileEndpoint, {
 			method: "POST",
@@ -205,7 +205,7 @@ export const uploadImage = async (image) => {
 		formData.append("file", image);
 
 		// call upload function to API with details
-		const endPoint = "uploadImage";
+		const endPoint = "/uploadImage";
 
 		const uploadEndpoint = baseAPIURL + endPoint;
 
@@ -237,7 +237,7 @@ export const mintBadge = async (mintBody, address) => {
 		mintBody.minter = address;
 
 		// call mint function to API with details
-		const endPoint = "mintBadge";
+		const endPoint = "/mintBadge";
 
 		const mintBadgeEndpoint = baseAPIURL + endPoint;
 
@@ -322,7 +322,7 @@ export const createMedal = async (createBody) => {
 		body.requirement = getNumber(createBody.metrics);
 
 		// call mint function to API with details
-		const endPoint = "createMedal";
+		const endPoint = "/createMedal";
 
 		const createMedalEndpoint = baseAPIURL + endPoint;
 
@@ -356,7 +356,7 @@ export const medalAction = async (id, claimed, isParticipant, address) => {
 		if (isParticipant) {
 			console.log(isParticipant);
 		} else {
-			const endPoint = `participate/${id}`;
+			const endPoint = `/participate/${id}`;
 			console.log(id);
 	
 			const participateEndpoint = baseAPIURL + endPoint;
@@ -389,7 +389,7 @@ export const getProfile = async () => {
 	const address = await getUserAddress();
 
 	try {
-		const endPoint = `getUserProfileAddress/${address}`;
+		const endPoint = `/getUserProfileAddress/${address}`;
 
 		const getProfileEndpoint = baseAPIURL + endPoint;
 
@@ -418,7 +418,7 @@ export const returnProfile = () => {
 
 export const getEligible = async (tokenId) => {
 	try {
-		const endPoint = `getEligibleArray/${tokenId}`;
+		const endPoint = `/getEligibleArray/${tokenId}`;
 
 		const getEligible = baseAPIURL + endPoint;
 

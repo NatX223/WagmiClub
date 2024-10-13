@@ -1,6 +1,6 @@
 "use client";
 
-import { X } from "@/assets/icons";
+import { X, Discord, Telegram } from "@/assets/icons";
 import {
 	Actions,
 	Bio,
@@ -10,7 +10,6 @@ import {
 	TrustScores,
 } from "@/components";
 import { useUserStore } from "@/hooks";
-import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers/react";
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import axios from "axios";
 import Link from "next/link";
@@ -178,20 +177,20 @@ const Profile = () => {
 								</Link>
 							)}
 							{profile.bio.x && (
-								<Link href={`https://x.com/${profile.bio.x}`}>
-									<X />
+								<Link href={`https://Discord.com`}>
+									<Discord />
 								</Link>
 							)}
 							{profile.bio.x && (
+								<Link href={`https://t.me/${profile.bio.telegram}`}>
+									<Telegram />
+								</Link>
+							)}
+							{/* {profile.bio.x && (
 								<Link href={`https://x.com/${profile.bio.x}`}>
 									<X />
 								</Link>
-							)}
-							{profile.bio.x && (
-								<Link href={`https://x.com/${profile.bio.x}`}>
-									<X />
-								</Link>
-							)}
+							)} */}
 						</section>
 					</>
 				)}

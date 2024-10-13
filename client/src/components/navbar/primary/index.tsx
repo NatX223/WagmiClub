@@ -123,7 +123,7 @@ export const PrimaryNav = () => {
 				).data;
 
 				!exists && router.replace("/profile/edit");
-				exists && router.push("/profile");
+				// exists && router.push("/profile");
 
 				const response = (
 					await axios.get(

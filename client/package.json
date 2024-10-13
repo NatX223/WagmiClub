@@ -30,6 +30,7 @@
     "react-dom": "^18",
     "react-rating-stars-component": "^2.2.0",
     "sass": "^1.69.5",
+    "thirdweb": "^5.61.5",
     "usehooks-ts": "^2.9.1",
     "viem": "^2.7.10",
     "wagmi": "^2.5.7",

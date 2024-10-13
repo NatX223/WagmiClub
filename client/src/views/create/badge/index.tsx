@@ -3,10 +3,15 @@ import { BadgeForm, ImageUpload, Rating } from "@/components";
 import { mintBadge, badgeContractAddress } from "@/utils/app.mjs";
 import { useFormik } from "formik";
 import { useWriteContract, useAccount } from 'wagmi';
+import { resolveAddress, BASENAME_RESOLVER_ADDRESS } from "thirdweb/extensions/ens";
+import { base } from "thirdweb/chains";
+import { createThirdwebClient } from "thirdweb";
 import "./index.scss";
 // import { getConfig } from "@/wagmi";
 // import { getEnsAddress } from '@wagmi/core'
 // import { normalize } from 'viem/ens';
+
+const clientId = process.env.NEXT_PUBLIC_THIRDWEB_CLIENTID;
 
 export const Badge = ({ group }: { group: string }) => {
 	const initialValues = {
@@ -24,6 +29,10 @@ export const Badge = ({ group }: { group: string }) => {
 
 	const account = useAccount();
 	const address = account.address || "";
+
+	const client = createThirdwebClient({
+		clientId: clientId || "",
+	});
 
 	const { writeContract } = useWriteContract() 
 	const abi = [
@@ -57,13 +66,14 @@ export const Badge = ({ group }: { group: string }) => {
 			console.log("Formik data:", values);
 			// Handle form submission logic here (e.g., API call)
 			try {
+				const receiver = await getAddress(values.receiver);
 				await mintBadge(values, address);
 				writeContract(
 					{ 
 					  address: badgeContractAddress, 
 					  abi, 
 					  functionName: "mint", 
-					  args: [values.receiver as `0x${string}`], 
+					  args: [receiver], 
 					}
 				  )
 			} catch (error) {
@@ -71,6 +81,24 @@ export const Badge = ({ group }: { group: string }) => {
 			}
 		},
 	});
+
+	const getAddress = async (recipient: string): Promise<`0x${string}`> => {
+		const isValidAddress = /^0x[a-fA-F0-9]{40}$/.test(recipient);
+	  
+		if (isValidAddress) {
+		  // If the recipient is a valid Ethereum address, return it
+		  return recipient as `0x${string}`;
+		} else {
+		  // Otherwise, resolve the address
+		  const address = await resolveAddress({
+			client,
+			name: recipient,
+			resolverAddress: BASENAME_RESOLVER_ADDRESS,
+			resolverChain: base,
+		  });
+		  return address as `0x${string}`;
+		}
+	  };	  
 
 	return (
 		<section>

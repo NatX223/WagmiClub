@@ -116,8 +116,6 @@ const Profile = () => {
 			})();
 	}, [isConnected, address, router, baseApiUrl, setUserName, setUserTitle]);
 
-
-
 	return (
 		<section className={`${group}`}>
 			<section className={`${group}__wrapper`}>

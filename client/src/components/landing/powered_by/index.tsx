@@ -40,12 +40,12 @@ export const PoweredBy = ({ group }: { group: string }) => {
 				<div className={`${group}__powered-bottom`}>
 					<b>Powered By</b>
 
-					<div>
+					{/* <div>
 						<img
 							src="/chainlinkLogo.jpg"
 							alt=""
 						/>
-					</div>
+					</div> */}
 
 					<div>
 						<i>

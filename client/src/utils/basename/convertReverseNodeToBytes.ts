@@ -10,7 +10,7 @@ export const convertReverseNodeToBytes = (
   chainId: number,
 ) => {
   const addressFormatted = address.toLocaleLowerCase() as Address;
-  const addressNode = keccak256(addressFormatted.substring(2) as Address);
+  const addressNode = keccak256(addressFormatted.substring(2) as `0x${string}`);
   const chainCoinType = convertChainIdToCoinType(chainId);
   const baseReverseNode = namehash(
     `${chainCoinType.toLocaleUpperCase()}.reverse`,

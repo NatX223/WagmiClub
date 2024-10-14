@@ -1,18 +1,17 @@
 "use client";
 
-import { useUserStore } from "@/hooks";
-import { useDisconnect } from "@web3modal/ethers/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useDisconnect } from 'wagmi'
 import "./index.scss";
 
-const Profile = ({ onClose }: { onClose: () => void }) => {
+const Profile = ({ onClose, user, title }: { onClose: () => void; user: string; title: string }) => {
 	const group = "profileModal";
 
 	const pathname = usePathname();
 	const { disconnect } = useDisconnect();
 
-	const { userName: user, userTitle: title } = useUserStore();
+	// const { userName: user, userTitle: title } = useUserStore();
 
 	let links: { name: string; href: string }[] = [];
 

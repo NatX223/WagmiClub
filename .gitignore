@@ -22,3 +22,4 @@ contracts/contracts/VRC725.sol
 contracts/contracts/NFTcontract.sol
 contracts/scripts/deployNFT.js
 /node_modules
+read.md
